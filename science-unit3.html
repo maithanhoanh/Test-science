@@ -1,0 +1,918 @@
+<title>Science Grade 4 – Unit 3</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+:root{
+  --bg:#f4f7fb; --card:#ffffff; --ink:#1d2433; --muted:#5b6475; --line:#dde3ec;
+  --pri:#2f6fec; --pri-soft:#e6eefe; --ok:#1f9d55; --ok-soft:#e3f6ea; --bad:#d64545; --bad-soft:#fde8e8;
+  --warn:#c77700; --warn-soft:#fff3dc; --u1:#7c4dff; --u2:#0097a7; --u3:#ef6c00;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+:root{color-scheme:light}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:#fff}
+header,nav,main{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header{background:linear-gradient(120deg,#2f6fec,#00a3c4);color:#fff;padding-block:14px}
+header h1{margin:0;font-size:20px}
+header p{margin:2px 0 0;opacity:.9;font-size:14px}
+nav{display:flex;gap:6px;overflow-x:auto;padding-block:10px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
+nav button{flex:0 0 auto;border:0;background:var(--pri-soft);color:var(--pri);padding:9px 14px;border-radius:999px;font-weight:600;font-size:15px;cursor:pointer}
+nav button.on{background:var(--pri);color:#fff}
+main{max-width:920px;margin:0 auto;padding-block:16px}
+:focus-visible{outline:3px solid #f2c200;outline-offset:2px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:0 0 14px}
+.card h3{margin:0 0 8px;font-size:18px}
+h2{font-size:22px;margin:4px 0 12px}
+.muted{color:var(--muted)}
+.vi{color:#5a4a00;background:#fffbe8;border-left:3px solid #f2c200;padding:6px 10px;border-radius:6px;margin:6px 0;font-size:15px}
+body.novi .vi{display:none}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.btn{border:0;background:var(--pri);color:#fff;padding:10px 16px;border-radius:10px;font-weight:600;font-size:16px;cursor:pointer}
+.btn.sec{background:var(--pri-soft);color:var(--pri)}
+.btn.ok{background:var(--ok)}
+.btn:disabled{opacity:.45;cursor:default}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.unitpill{display:inline-block;font-size:12px;font-weight:700;color:#fff;padding:2px 8px;border-radius:999px;margin-right:6px}
+.u31{background:var(--u1)}.u32{background:var(--u2)}.u33{background:var(--u3)}
+.bar{height:10px;background:#e7ebf2;border-radius:99px;overflow:hidden}
+.bar>i{display:block;height:100%;background:var(--ok)}
+ul.pts{margin:6px 0;padding-left:20px}
+ul.pts li{margin:3px 0}
+.key{background:var(--ok-soft);border:1px solid #b8e4c8;border-radius:10px;padding:10px 12px;margin:8px 0}
+.key b{color:var(--ok)}
+.trap{background:var(--bad-soft);border:1px solid #f3c2c2;border-radius:10px;padding:10px 12px;margin:8px 0}
+.trap b{color:var(--bad)}
+table.t{border-collapse:collapse;width:100%;margin:6px 0;font-size:15px}
+table.t td,table.t th{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+table.t th{background:#f0f3f8}
+/* questions */
+.q{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:14px}
+.qhead{display:flex;justify-content:space-between;gap:8px;align-items:flex-start;margin-bottom:6px}
+.marks{font-weight:700;color:var(--muted);white-space:nowrap}
+.qtext{font-weight:600;margin-bottom:8px}
+.opt{display:block;width:100%;text-align:left;border:2px solid var(--line);background:#fff;border-radius:10px;padding:10px 12px;margin:6px 0;font-size:16px;cursor:pointer}
+.opt.sel{border-color:var(--pri);background:var(--pri-soft)}
+.opt.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.tfrow{display:flex;gap:8px;align-items:center;justify-content:space-between;border-bottom:1px dashed var(--line);padding:7px 0}
+.tfrow .s{flex:1}
+.tfb{border:2px solid var(--line);background:#fff;border-radius:8px;padding:6px 10px;font-weight:700;cursor:pointer;min-width:62px}
+.tfb.sel{border-color:var(--pri);background:var(--pri-soft)}
+.tfb.right{border-color:var(--ok);background:var(--ok-soft)}
+.tfb.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.blank{border:0;border-bottom:2px solid var(--pri);background:#f5f8ff;font-size:16px;padding:3px 6px;width:150px;border-radius:4px 4px 0 0}
+.blank.right{border-color:var(--ok);background:var(--ok-soft)}
+.blank.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.bank{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 12px;padding:8px;background:#f6f8fc;border-radius:10px}
+.chip{border:1px solid #c9d4e8;background:#fff;border-radius:999px;padding:5px 12px;font-weight:600;cursor:pointer;font-size:15px}
+select{font-size:16px;padding:6px;border-radius:8px;border:2px solid var(--line);max-width:100%}
+select.right{border-color:var(--ok);background:var(--ok-soft)}
+select.wrong{border-color:var(--bad);background:var(--bad-soft)}
+textarea{width:100%;min-height:80px;font:16px/1.5 inherit;padding:10px;border-radius:10px;border:2px solid var(--line)}
+.fb{margin-top:10px;padding:10px 12px;border-radius:10px;font-size:15px}
+.fb.good{background:var(--ok-soft)}
+.fb.part{background:var(--warn-soft)}
+.fb.bad{background:var(--bad-soft)}
+.fb .model{margin-top:6px;padding:8px;background:#fff;border-radius:8px;border:1px dashed #9bb}
+.check label{display:flex;gap:8px;align-items:flex-start;margin:4px 0}
+.matchrow{display:flex;gap:10px;align-items:center;justify-content:space-between;border-bottom:1px dashed var(--line);padding:7px 0;flex-wrap:wrap}
+.matchrow .l{flex:1;min-width:180px}
+.svgwrap{text-align:center;margin:8px 0}
+.svgwrap svg{max-width:100%;height:auto}
+.speak{border:0;background:none;cursor:pointer;font-size:18px;padding:0 4px}
+.sticky-score{position:sticky;top:58px;z-index:4;background:#fff;border:1px solid var(--line);border-radius:12px;padding:8px 12px;margin-bottom:12px;display:flex;justify-content:space-between;font-weight:700}
+.flash{min-height:150px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;cursor:pointer;font-size:22px;font-weight:700}
+.flash small{font-size:15px;font-weight:400;color:var(--muted);margin-top:8px}
+canvas{background:#f0f6ff;border:2px solid #b9cbe8;border-radius:10px;width:100%;max-width:320px;height:auto}
+input[type=range]{width:100%}
+.big{font-size:28px;font-weight:800}
+@media (max-width:560px){body{font-size:16px}.blank{width:120px}}
+</style>
+<header>
+  <h1>🔬 Science Grade 4 – Unit 3: States of matter & the water cycle</h1>
+  <p>Cambridge Primary Science • Ôn tập theo phiếu bài tập Unit 3.1 – 3.3 (Week 6–7)</p>
+</header>
+<nav id="nav"></nav>
+<main id="app"></main>
+
+<script>
+/* =====================================================================
+   DỮ LIỆU — có thể thêm Unit / câu hỏi mới ở phần này
+   ===================================================================== */
+const UNITS = {
+  "3.1": {name:"Gases", vi:"Chất khí", cls:"u31"},
+  "3.2": {name:"Properties of water", vi:"Tính chất của nước", cls:"u32"},
+  "3.3": {name:"Evaporation, condensation & the water cycle", vi:"Bay hơi, ngưng tụ & vòng tuần hoàn nước", cls:"u33"},
+};
+
+/* ---------- SVG hình minh hoạ ---------- */
+function heatingCurveSVG(opts={}){
+  const boxes = opts.boxes ? `
+    <rect x="118" y="132" width="62" height="24" rx="5" fill="#fff" stroke="#333"/><text x="149" y="149" font-size="13" text-anchor="middle" font-weight="700">Box 1</text>
+    <line x1="120" y1="161" x2="178" y2="161" stroke="#333" marker-end="url(#ar)"/>
+    <rect x="118" y="182" width="62" height="24" rx="5" fill="#fff" stroke="#333"/><text x="149" y="199" font-size="13" text-anchor="middle" font-weight="700">Box 2</text>
+    <line x1="178" y1="177" x2="120" y2="177" stroke="#333" marker-end="url(#ar)"/>
+    <rect x="272" y="92" width="62" height="24" rx="5" fill="#fff" stroke="#333"/><text x="303" y="109" font-size="13" text-anchor="middle" font-weight="700">Box 3</text>
+    <line x1="274" y1="122" x2="332" y2="122" stroke="#333" marker-end="url(#ar)"/>` : "";
+  const names = opts.names ? `
+    <text x="150" y="160" font-size="12" text-anchor="middle" fill="#0b7">melting →</text>
+    <text x="150" y="190" font-size="12" text-anchor="middle" fill="#a40">← freezing</text>
+    <text x="303" y="70" font-size="12" text-anchor="middle" fill="#0b7">boiling →</text>
+    <text x="303" y="100" font-size="12" text-anchor="middle" fill="#a40">← condensing</text>
+    <text x="70" y="235" font-size="12" fill="#246">SOLID (ice)</text>
+    <text x="205" y="140" font-size="12" fill="#246">LIQUID (water)</text>
+    <text x="335" y="40" font-size="12" fill="#246">GAS</text>` : "";
+  const marker = opts.marker ? `<circle id="hcMarker" cx="50" cy="200" r="7" fill="#e53935" stroke="#fff" stroke-width="2"/>` : "";
+  return `<svg viewBox="0 0 420 270" width="420" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,sans-serif">
+  <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker></defs>
+  <line x1="50" y1="245" x2="50" y2="20" stroke="#222" stroke-width="2" marker-end="url(#ar)"/>
+  <line x1="50" y1="245" x2="410" y2="245" stroke="#222" stroke-width="2" marker-end="url(#ar)"/>
+  <text x="18" y="135" font-size="12" transform="rotate(-90 18 135)" text-anchor="middle" font-weight="700">Temperature (°C)</text>
+  <text x="230" y="265" font-size="12" text-anchor="middle" font-weight="700">Heat energy transferred</text>
+  <text x="44" y="174" font-size="12" text-anchor="end">0</text>
+  <text x="44" y="84" font-size="12" text-anchor="end">100</text>
+  <line x1="50" y1="170" x2="410" y2="170" stroke="#ccc" stroke-dasharray="3 3"/>
+  <line x1="50" y1="80" x2="410" y2="80" stroke="#ccc" stroke-dasharray="3 3"/>
+  <polyline points="50,200 102,170 190,170 260,80 348,80 400,53" fill="none" stroke="#2f6fec" stroke-width="3"/>
+  <text x="68" y="190" font-size="15" font-weight="800">A</text>
+  <text x="140" y="125" font-size="15" font-weight="800">B</text>
+  <text x="212" y="118" font-size="15" font-weight="800">C</text>
+  <text x="300" y="64" font-size="15" font-weight="800">D</text>
+  <text x="380" y="52" font-size="15" font-weight="800">E</text>
+  ${boxes}${names}${marker}
+</svg>`;
+}
+
+function particlesABSVG(){
+  // A = heated/expanded (far apart, vibrating), B = cooled/contracted
+  let a="", b="";
+  for(let r=0;r<4;r++)for(let c=0;c<4;c++){
+    const x=30+c*34,y=30+r*34;
+    a+=`<circle cx="${x}" cy="${y}" r="10" fill="#9bb7e8" stroke="#345"/>
+        <path d="M${x-16},${y-6} q-4,6 0,12 M${x+16},${y-6} q4,6 0,12" stroke="#345" fill="none"/>`;
+    const x2=230+c*23,y2=45+r*23;
+    b+=`<circle cx="${x2}" cy="${y2}" r="10" fill="#9bb7e8" stroke="#345"/>`;
+  }
+  return `<svg viewBox="0 0 340 180" width="340" xmlns="http://www.w3.org/2000/svg" font-family="system-ui">
+    ${a}${b}<text x="80" y="172" font-size="16" font-weight="800" text-anchor="middle">A</text>
+    <text x="264" y="172" font-size="16" font-weight="800" text-anchor="middle">B</text></svg>`;
+}
+
+function processDiagramSVG(){
+  // liquid (close, touching) → gas (far apart)
+  let l="",g="";
+  const pts=[[20,90],[40,92],[60,90],[80,92],[30,72],[50,74],[70,72],[90,74],[40,56],[60,56]];
+  pts.forEach(p=>l+=`<circle cx="${p[0]+10}" cy="${p[1]}" r="9" fill="#7fb0ff" stroke="#235"/>`);
+  [[220,20],[290,40],[250,70],[310,95],[230,110],[275,15],[320,60],[260,100],[300,120],[215,65]].forEach(p=>g+=`<circle cx="${p[0]}" cy="${p[1]}" r="9" fill="#7fb0ff" stroke="#235"/>`);
+  return `<svg viewBox="0 0 340 140" width="340" xmlns="http://www.w3.org/2000/svg" font-family="system-ui">
+    <rect x="15" y="10" width="110" height="110" fill="none" stroke="#999"/>${l}
+    <line x1="140" y1="65" x2="195" y2="65" stroke="#333" stroke-width="3" marker-end="url(#ar2)"/>
+    <defs><marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker></defs>
+    <rect x="205" y="5" width="130" height="130" fill="none" stroke="#999"/>${g}</svg>`;
+}
+
+function waterCycleSVG(){
+  return `<svg viewBox="0 0 640 360" width="640" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,sans-serif" font-size="14">
+  <rect width="640" height="360" fill="#e8f4ff"/>
+  <circle cx="60" cy="55" r="32" fill="#ffd54f"/><text x="60" y="110" text-anchor="middle" font-weight="700">Sun ☀ (heat energy)</text>
+  <path d="M0 290 Q 150 270 290 295 L290 360 L0 360 Z" fill="#4f8fe8"/><text x="110" y="335" fill="#fff" font-weight="700">Sea / lake</text>
+  <path d="M380 300 L500 120 L560 200 L640 140 L640 360 L330 360 Z" fill="#8d9a7a"/>
+  <path d="M480 150 L500 120 L522 150 L510 145 L500 152 L490 146 Z" fill="#fff"/>
+  <path d="M520 200 Q 470 260 380 300 Q 330 320 290 300" stroke="#4f8fe8" stroke-width="7" fill="none"/>
+  <rect x="300" y="250" width="10" height="40" fill="#6d4c41"/><circle cx="305" cy="240" r="22" fill="#43a047"/>
+  <g fill="#fff" stroke="#9ab"><ellipse cx="300" cy="70" rx="60" ry="26"/><ellipse cx="340" cy="60" rx="45" ry="24"/><ellipse cx="470" cy="70" rx="55" ry="25"/></g>
+  <g stroke="#e65100" stroke-width="3" fill="none"><path d="M140 270 V170" marker-end="url(#wa)"/><path d="M180 270 V170" marker-end="url(#wa)"/><path d="M305 215 V160" marker-end="url(#wa)"/></g>
+  <g stroke="#1565c0" stroke-width="2"><line x1="450" y1="100" x2="440" y2="130"/><line x1="470" y1="100" x2="460" y2="130"/><line x1="490" y1="100" x2="480" y2="130"/></g>
+  <path d="M200 120 Q 230 85 245 80" stroke="#555" stroke-width="2" fill="none" stroke-dasharray="4 3" marker-end="url(#wa)"/>
+  <defs><marker id="wa" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker></defs>
+  <g font-weight="700">
+   <text x="90" y="160" fill="#e65100">① Evaporation</text>
+   <text x="318" y="190" fill="#2e7d32" font-size="13">② Transpiration</text>
+   <text x="318" y="205" fill="#2e7d32" font-size="12">(plants give off water vapour)</text>
+   <text x="240" y="28" fill="#333">③ Condensation → clouds</text>
+   <text x="505" y="115" fill="#1565c0">④ Precipitation</text>
+   <text x="505" y="132" fill="#1565c0" font-size="12">(rain, snow, hail)</text>
+   <text x="390" y="285" fill="#0d47a1">⑤ Collection</text>
+   <text x="390" y="300" fill="#0d47a1" font-size="12">(flows back to rivers, seas)</text>
+   <text x="470" y="175" fill="#555" font-size="12">snow melts ↓</text>
+  </g></svg>`;
+}
+
+/* ---------- BÀI HỌC ---------- */
+const LESSONS = {
+"3.1":[
+ {t:"What is air? – Không khí là gì?", pts:[
+  "Air is a <b>mixture of gases</b> – not a single gas.",
+  "The layer of air that surrounds the Earth is called the <b>atmosphere</b>.",
+  "<b>Nitrogen ≈ 78%</b> (the largest amount), <b>oxygen ≈ 21%</b>, other gases ≈ 1% (argon, <b>carbon dioxide</b>, <b>water vapour</b>).",
+  "Water vapour is a gas in the air. We cannot see it."],
+  vi:"Không khí là HỖN HỢP nhiều khí. Lớp không khí bao quanh Trái Đất gọi là khí quyển (atmosphere). Nitơ chiếm nhiều nhất (~78%), oxy ~21%.",
+  trap:"Oxygen does NOT make up the largest amount of air – <b>nitrogen</b> does. The layer of air is the <b>atmosphere</b>, NOT carbon dioxide."},
+ {t:"Properties of gases – Tính chất của chất khí", pts:[
+  "A gas has <b>no fixed shape</b> and <b>no fixed volume</b>.",
+  "A gas <b>spreads out to fill</b> the whole container.",
+  "A gas can be <b>squashed (compressed)</b> and can <b>flow</b>.",
+  "Gases have <b>mass</b> (a blown-up ball is heavier than a flat ball).",
+  "Particles in a gas are <b>very far apart</b> and <b>move very fast in all directions</b>."],
+  vi:"Chất khí không có hình dạng, thể tích cố định; lan ra lấp đầy bình chứa; nén được; có khối lượng. Hạt ở rất xa nhau và chuyển động rất nhanh theo mọi hướng.",
+  key:"Full-mark answer: <i>“The particles in a gas are far apart and move quickly in all directions.”</i>"},
+ {t:"Water vapour and steam – Hơi nước", pts:[
+  "<b>Water vapour</b> is water in the gas state. It is invisible.",
+  "<b>Steam</b> is very hot (heated) water vapour from boiling water.",
+  "The white ‘cloud’ above a kettle is really tiny drops of liquid water (the steam has cooled and condensed)."],
+  vi:"Hơi nước (water vapour) là nước ở thể khí, không nhìn thấy. Steam là hơi nước rất nóng (từ nước sôi)."},
+ {t:"Making a gas: baking soda + vinegar", pts:[
+  "When Lisa mixes <b>baking soda</b> and <b>vinegar</b>, a gas is made.",
+  "Evidence (how we know): we see <b>bubbles / fizzing</b>; a balloon on top <b>blows up</b>.",
+  "The gas is <b>carbon dioxide</b>."],
+  vi:"Trộn baking soda + giấm → sủi bọt → khí carbon dioxide (CO₂). Dấu hiệu: thấy bọt khí/sủi bọt.",
+  key:"How can she know? → <i>“She can see bubbles (fizzing) in the jar.”</i> Which gas? → <i>“Carbon dioxide.”</i>"},
+ {t:"Air pollution – Ô nhiễm không khí", pts:[
+  "Smoke from cars, factories and burning rubbish pollutes the air.",
+  "Air pollution can make us <b>cough</b>, feel <b>dizzy</b> and give us <b>headaches</b>; it can cause breathing problems such as asthma."],
+  vi:"Ô nhiễm không khí làm ta ho, chóng mặt, đau đầu, khó thở."}
+],
+"3.2":[
+ {t:"Three states of matter – Ba thể của chất", html:`<table class="t"><tr><th></th><th>Solid (rắn)</th><th>Liquid (lỏng)</th><th>Gas (khí)</th></tr>
+  <tr><td>Shape</td><td>fixed shape</td><td>takes the shape of the container, can flow</td><td>no fixed shape, fills the container</td></tr>
+  <tr><td>Particles</td><td>very close, in rows, only <b>vibrate</b></td><td>close together, <b>move around / slide past</b> each other</td><td><b>far apart</b>, move <b>fast in all directions</b></td></tr></table>`},
+ {t:"Melting point & boiling point", pts:[
+  "<b>Melting point</b> = the temperature at which a <b>solid</b> changes into a <b>liquid</b>.",
+  "<b>Boiling point</b> = the temperature at which a <b>liquid boils</b> and changes into a <b>gas</b>.",
+  "Pure water: melting (freezing) point <b>0 °C</b>, boiling point <b>100 °C</b>.",
+  "Melting point and boiling point <b>are properties</b> of a substance – different substances have different melting and boiling points.",
+  "Freezing point of a substance = its melting point."],
+  vi:"Điểm nóng chảy: nhiệt độ chất rắn → lỏng. Điểm sôi: nhiệt độ chất lỏng sôi → khí. Nước tinh khiết: 0 °C và 100 °C. Mỗi chất có điểm nóng chảy/sôi riêng → đó là TÍNH CHẤT của chất.",
+  key:"Room temperature ≈ 20 °C. Rule: <br>• melting point <b>above</b> 20 °C → <b>solid</b><br>• melting point below 20 °C but boiling point above 20 °C → <b>liquid</b><br>• boiling point <b>below</b> 20 °C → <b>gas</b>"},
+ {t:"Salt and water", pts:[
+  "Adding salt to water makes the <b>boiling point higher</b> (salt solution boils at about 110 °C, water at 100 °C).",
+  "Salt also makes the freezing point lower (that is why salt is put on icy roads)."],
+  vi:"Cho muối vào nước → điểm sôi TĂNG (cao hơn 100 °C)."},
+ {t:"Heating and cooling – the particle model", pts:[
+  "<b>Heating</b>: particles <b>gain heat energy</b> → <b>move faster</b> → <b>move further apart</b> → the substance <b>expands</b>.",
+  "<b>Cooling</b>: particles <b>lose heat energy</b> → <b>move more slowly</b> → <b>move closer together</b> → the substance <b>contracts</b>."],
+  vi:"Đun nóng: hạt nhận nhiệt → chuyển động nhanh hơn → xa nhau hơn → chất NỞ RA. Làm lạnh: ngược lại → CO LẠI.",
+  trap:"The particles themselves do <b>NOT</b> get bigger or smaller! Only the <b>spaces between them</b> change."},
+ {t:"Water is special!", pts:[
+  "Most substances contract when they freeze, but <b>water expands when it freezes</b>.",
+  "That is why ice floats, a full bottle of water can crack in the freezer and water pipes can burst in very cold weather."],
+  vi:"Nước NỞ RA khi đông đặc (khác hầu hết các chất) → đá nổi, ống nước có thể vỡ khi trời rất lạnh."},
+ {t:"The heating curve of water – Đồ thị đun nóng", html:`<div class="svgwrap">${heatingCurveSVG({names:true})}</div>
+  <table class="t"><tr><th>Part</th><th>What is happening</th></tr>
+  <tr><td>A</td><td><b>Solid</b> (ice) is heated, temperature rises to 0 °C</td></tr>
+  <tr><td>B</td><td><b>Melting</b> (→ heating) / <b>freezing</b> (← cooling) at 0 °C</td></tr>
+  <tr><td>C</td><td><b>Liquid</b> water is heated from 0 °C to 100 °C</td></tr>
+  <tr><td>D</td><td><b>Boiling</b> at 100 °C (← cooling = condensing)</td></tr>
+  <tr><td>E</td><td><b>Gas</b> (water vapour / steam)</td></tr></table>`,
+  key:"Flat parts (B, D): the temperature <b>stays the same</b> while the state is changing – the energy is used to change the state.<br>At 0 °C: <i>“The ice starts to melt. The particles gain heat energy, vibrate more and break away from their fixed positions so they can move around each other.”</i><br>At 100 °C: <i>“The water boils and turns into a gas. The particles gain more energy, move very fast and move far apart.”</i>"}
+],
+"3.3":[
+ {t:"Evaporation – Bay hơi", pts:[
+  "Evaporation: a <b>liquid</b> changes into a <b>gas</b>. The liquid <b>gains heat</b>.",
+  "It happens <b>at any temperature</b>, only <b>at the surface</b> of the liquid, <b>slowly</b>, with <b>no bubbles</b>.",
+  "Evaporation is faster when it is <b>warmer</b>, <b>windy</b>, or the liquid has a <b>bigger surface area</b>.",
+  "Examples: puddles drying up, wet washing drying, sweat drying."],
+  vi:"Bay hơi: lỏng → khí, xảy ra ở MỌI nhiệt độ, chỉ ở BỀ MẶT, chậm, không có bọt. Nhanh hơn khi trời nóng, có gió, diện tích bề mặt lớn.",
+  key:"Particles in evaporation: <i>“The particles gain heat energy and move faster. Some particles at the surface escape and move far apart as a gas (water vapour).”</i>"},
+ {t:"Boiling vs evaporation – So sánh", html:`<table class="t"><tr><th>Evaporation</th><th>Boiling</th></tr>
+  <tr><td colspan="2" style="text-align:center">Both: the liquid <b>gains heat</b>; they change a <b>liquid</b> into a <b>gas</b></td></tr>
+  <tr><td>happens at any temperature</td><td>happens only at the <b>boiling point</b></td></tr>
+  <tr><td>happens at the <b>surface</b> of the liquid</td><td>happens <b>throughout</b> the liquid</td></tr>
+  <tr><td>occurs <b>slowly</b></td><td>occurs <b>quickly</b></td></tr>
+  <tr><td><b>no bubbles</b> formed</td><td><b>bubbles</b> are formed</td></tr></table>`},
+ {t:"Condensation – Ngưng tụ", pts:[
+  "Condensation: a <b>gas</b> changes into a <b>liquid</b> when it is <b>cooled</b>.",
+  "The particles <b>lose heat energy</b>, <b>move more slowly</b> and <b>move closer together</b>.",
+  "Condensation is the <b>reverse</b> of evaporation.",
+  "Examples: drops of water on the outside of a cold glass, a misty bathroom mirror, clouds, dew on grass."],
+  vi:"Ngưng tụ: khí → lỏng khi bị làm lạnh. Hạt mất nhiệt, chậm lại, lại gần nhau. Ngưng tụ là quá trình NGƯỢC của bay hơi.",
+  key:"Why is condensation the reverse of evaporation? <i>“In evaporation a liquid gains heat and changes into a gas. In condensation a gas loses heat (cools) and changes back into a liquid.”</i> (2 marks = 2 ideas)",
+  trap:"Particles that condense have <b>LESS</b> energy (they lose energy). When we cool a gas, its particles do <b>not</b> expand – they move closer together."},
+ {t:"The water cycle – Vòng tuần hoàn nước", html:`<div class="svgwrap">${waterCycleSVG()}</div>`, pts:[
+  "The <b>Sun</b> is the source of heat energy for the water cycle.",
+  "<b>Evaporation</b>: water from seas, rivers, lakes and soil changes into water vapour and rises into the air.",
+  "<b>Transpiration</b>: plants give off water vapour from their leaves.",
+  "<b>Condensation</b>: high in the sky the air is cold; water vapour cools and condenses into tiny drops of water → <b>clouds</b>.",
+  "<b>Precipitation</b>: rain, snow and hail fall from clouds and bring water back to the Earth’s surface.",
+  "<b>Collection</b>: water flows (runs downhill) back to rivers, lakes, seas and soil.",
+  "<b>Freezing</b> happens in very cold clouds and on high mountains (snow, hail). <b>Melting</b> happens when snow on mountains melts and flows into rivers."],
+  vi:"Mặt Trời cung cấp nhiệt. Bay hơi → (thoát hơi nước ở lá cây) → ngưng tụ thành mây → giáng thủy (mưa, tuyết, mưa đá) → tích tụ về sông, hồ, biển. Vòng tuần hoàn quan trọng vì cung cấp nước ngọt cho con người, cây cối và động vật.",
+  key:"Why is the water cycle important? <i>“It gives us fresh water to drink and water for plants and animals to live.”</i>"},
+ {t:"Ahmed’s water cycle model", pts:[
+  "Hot water in a beaker <b>evaporates</b> → water vapour rises.",
+  "The ice makes the plastic sheet cold, so the water vapour <b>condenses</b> on the plastic sheet.",
+  "Water drips back into the beaker = <b>precipitation</b> (like rain).",
+  "He uses a model <b>to show what happens during the water cycle</b>.",
+  "Safety with hot water: an adult pours the hot water, do not touch the hot water/beaker, wear heat-proof gloves and goggles, keep the beaker on a flat table."],
+  vi:"Mô hình: nước nóng bay hơi → ngưng tụ trên tấm nhựa lạnh → nhỏ giọt (giáng thủy). An toàn: người lớn rót nước nóng, không chạm vào, đeo găng tay chịu nhiệt."}
+]};
+
+/* ---------- TỪ VỰNG ---------- */
+const VOCAB = [
+ ["atmosphere","khí quyển","the layer of air that surrounds the Earth"],
+ ["mixture","hỗn hợp","two or more substances mixed together"],
+ ["nitrogen","khí nitơ","the gas that makes up about 78% of air"],
+ ["oxygen","khí oxy","the gas we need to breathe in; about 21% of air"],
+ ["carbon dioxide","khí cacbonic","gas made by baking soda + vinegar; we breathe it out"],
+ ["water vapour","hơi nước","water in the gas state"],
+ ["steam","hơi nước nóng","very hot water vapour"],
+ ["particle","hạt","a very tiny piece that everything is made of"],
+ ["vibrate","rung động","move backwards and forwards on the spot"],
+ ["expand","nở ra","get bigger"],
+ ["contract","co lại","get smaller"],
+ ["melting point","điểm nóng chảy","temperature at which a solid changes into a liquid"],
+ ["boiling point","điểm sôi","temperature at which a liquid boils and changes into a gas"],
+ ["freezing","đông đặc","a liquid changes into a solid"],
+ ["melting","nóng chảy","a solid changes into a liquid"],
+ ["evaporation","sự bay hơi","a liquid changes into a gas at any temperature"],
+ ["condensation","sự ngưng tụ","a gas cools and changes into a liquid"],
+ ["precipitation","giáng thủy","rain, snow and hail falling from clouds"],
+ ["transpiration","thoát hơi nước","plants give off water vapour from their leaves"],
+ ["collection","tích tụ","water runs downhill to form lakes and oceans"],
+ ["water cycle","vòng tuần hoàn nước","water moves from land and sea to the air and back again"],
+ ["property","tính chất","what a substance is like or how it behaves"],
+ ["reverse","ngược lại","the opposite way"],
+ ["surface","bề mặt","the top or outside of something"],
+];
+
+/* ---------- NGÂN HÀNG CÂU HỎI ----------
+ type: mcq | tf | fill | match | short | barchart
+ Mỗi câu có: id, unit, marks (nếu cần), ex (giải thích EN), vi (giải thích tiếng Việt)
+------------------------------------------------- */
+const Q = [
+/* ===== UNIT 3.1 ===== */
+{id:"g1",unit:"3.1",type:"tf",q:"Tick True or False.",items:[
+  {s:"Air is a single gas.",a:false,ex:"Air is a mixture of gases."},
+  {s:"The layer of air that surrounds the Earth is called carbon dioxide.",a:false,ex:"It is called the atmosphere."},
+  {s:"Air pollution can make us cough, feel dizzy and give us headaches.",a:true},
+  {s:"Nitrogen makes up about 78% of the atmosphere.",a:true},
+  {s:"Water vapour is a gas in the air.",a:true},
+  {s:"Oxygen makes up the largest amount of air.",a:false,ex:"Nitrogen (78%) makes up the largest amount."},
+  {s:"Steam is heated water vapour.",a:true}],
+  vi:"Không khí là hỗn hợp khí; lớp khí bao quanh Trái Đất là khí quyển; nitơ chiếm nhiều nhất."},
+{id:"g2",unit:"3.1",type:"short",marks:1,q:"Lisa mixes baking soda and vinegar in a jar. A gas is formed. <b>How</b> can she know?",
+  points:[{t:"mentions bubbles / fizzing (or a balloon blowing up)",k:["bubble","fizz","balloon","foam"]}],
+  model:"She can see bubbles (fizzing) in the jar.",vi:"Dấu hiệu có khí: thấy bọt khí, sủi bọt."},
+{id:"g3",unit:"3.1",type:"mcq",q:"Lisa mixes baking soda and vinegar. Which gas is formed?",options:["oxygen","nitrogen","carbon dioxide","water vapour"],a:2,
+  ex:"Baking soda + vinegar make carbon dioxide gas.",vi:"Khí tạo ra là carbon dioxide (CO₂)."},
+{id:"g4",unit:"3.1",type:"mcq",q:"About how much of the air is oxygen?",options:["1%","21%","50%","78%"],a:1,ex:"Oxygen ≈ 21%, nitrogen ≈ 78%.",vi:"Oxy khoảng 21%."},
+{id:"g5",unit:"3.1",type:"mcq",q:"Which sentence describes a gas?",options:["It has a fixed shape.","It keeps the same volume in any container.","It spreads out to fill the whole container.","Its particles are in rows and only vibrate."],a:2,
+  ex:"A gas has no fixed shape and spreads out to fill its container.",vi:"Chất khí lan ra lấp đầy cả bình chứa."},
+{id:"g6",unit:"3.1",type:"mcq",q:"Which can be squashed (compressed) most easily?",options:["a wooden block","water","air in a syringe","a stone"],a:2,
+  ex:"Gas particles are far apart, so there is space to squash them closer.",vi:"Chất khí dễ nén nhất vì các hạt ở xa nhau."},
+{id:"g7",unit:"3.1",type:"fill",q:"Complete the sentences. Use the words in the box.",bank:["atmosphere","mixture","nitrogen","oxygen","water vapour"],
+  text:"Air is a {0} of gases. The layer of air around the Earth is called the {1}. The gas that makes up the largest amount of air is {2}. Water in the gas state is called {3}.",
+  answers:[["mixture"],["atmosphere"],["nitrogen"],["water vapour","vapour"]],vi:"Không khí là hỗn hợp; khí quyển; nitơ; hơi nước."},
+{id:"g8",unit:"3.1",type:"short",marks:2,q:"Describe the particles in a gas. (How are they arranged? How do they move?)",
+  points:[{t:"far apart / lots of space between them",k:["far apart","far away","spread out","lots of space","big space","far from each other","further apart"]},
+          {t:"move quickly / fast in all directions",k:["fast","quick","all direction","every direction","freely"]}],
+  model:"The particles in a gas are far apart and move quickly in all directions.",vi:"Hạt ở rất xa nhau (1 điểm) và chuyển động nhanh theo mọi hướng (1 điểm)."},
+{id:"g9",unit:"3.1",type:"mcq",q:"A balloon is put over the top of a bottle of vinegar and baking soda. Why does the balloon blow up?",
+  options:["The vinegar is hot.","A gas is made and fills the balloon.","The balloon melts.","Air is sucked out of the balloon."],a:1,ex:"Carbon dioxide gas is made and fills the balloon.",vi:"Khí CO₂ sinh ra làm quả bóng phồng lên."},
+{id:"g10",unit:"3.1",type:"short",marks:1,q:"Write <b>one</b> way that air pollution can affect our health.",
+  points:[{t:"cough / dizzy / headache / breathing problems / asthma",k:["cough","dizz","headache","breath","asthma","lung","sick","ill"]}],
+  model:"Air pollution can make us cough, feel dizzy or give us headaches.",vi:"Ho, chóng mặt, đau đầu, khó thở."},
+{id:"g11",unit:"3.1",type:"mcq",q:"Zara weighs a flat football. Then she pumps air into it and weighs it again. What does she find?",
+  options:["The flat ball is heavier.","The pumped-up ball is heavier, so air has mass.","They weigh the same because air has no mass.","The pumped-up ball floats away."],a:1,ex:"Gases have mass, so the ball with more air is heavier.",vi:"Không khí có khối lượng."},
+{id:"g12",unit:"3.1",type:"mcq",q:"Which is TRUE about water vapour?",options:["We can see it easily.","It is water in the solid state.","It is water in the gas state.","It is the same as a cloud."],a:2,
+  ex:"Water vapour is invisible water in the gas state. Clouds are tiny drops of liquid water.",vi:"Hơi nước là nước ở thể khí, không nhìn thấy."},
+
+/* ===== UNIT 3.2 ===== */
+{id:"w1",unit:"3.2",type:"fill",q:"Akira has a bar of chocolate. Choose words to complete the sentences.",bank:["boils","steam","gas","liquid","temperature","melts","freezes","solid"],
+  text:"The cold chocolate is a {0}.<br>Akira leaves chocolate in the Sun.<br>The chocolate {1}.<br>It has turned into a {2}.",
+  answers:[["solid"],["melts"],["liquid"]],vi:"Sô-cô-la lạnh là chất rắn; để ngoài nắng nó nóng chảy (melts) thành chất lỏng."},
+{id:"w2",unit:"3.2",type:"mcq",q:"Are the melting point and the boiling point properties of a substance?",options:["Yes","No"],a:0,
+  ex:"Yes. Each substance has its own melting point and boiling point, so we can use them to identify a substance.",vi:"Có – mỗi chất có điểm nóng chảy và điểm sôi riêng."},
+{id:"w3",unit:"3.2",type:"short",marks:1,all:true,q:"What is the <b>boiling point</b> of a substance?",
+  points:[{t:"the temperature",k:["temperature"]},{t:"a liquid boils / changes into a gas",k:["boil","gas","vapour","steam"]}],
+  model:"The boiling point is the temperature at which a liquid boils and changes into a gas.",vi:"Phải có đủ: “nhiệt độ” + “chất lỏng sôi / chuyển thành khí”."},
+{id:"w4",unit:"3.2",type:"short",marks:1,all:true,q:"What is the <b>melting point</b> of a substance?",
+  points:[{t:"the temperature",k:["temperature"]},{t:"a solid changes into a liquid / melts",k:["melt","liquid"]}],
+  model:"The melting point is the temperature at which a solid melts and changes into a liquid.",vi:"Phải có đủ: “nhiệt độ” + “chất rắn chuyển thành chất lỏng”."},
+{id:"w5",unit:"3.2",type:"barchart",q:"Mia writes the boiling points of some liquids in a table. Complete the bar chart. Two bars have been done for you.<br><small class='muted'>Bấm vào cột (hoặc dùng nút − / +) để đặt chiều cao.</small>",
+  data:[{n:"liquid A",v:80,given:true},{n:"liquid B",v:20,given:true},{n:"liquid C",v:70},{n:"salt solution",v:110},{n:"water",v:100}],
+  ex:"Read each value from the table and draw the bar exactly to that height. Use a ruler and keep the bars the same width.",vi:"Đọc đúng giá trị trong bảng, vẽ cột đúng chiều cao, dùng thước."},
+{id:"w6",unit:"3.2",type:"mcq",q:"Look at Mia’s table: liquid A 80 °C, liquid B 20 °C, liquid C 70 °C, salt solution 110 °C, water 100 °C. Which liquid has the <b>lowest</b> boiling point?",
+  options:["liquid A","liquid B","liquid C","water"],a:1,ex:"20 °C is the lowest number.",vi:"20 °C là nhỏ nhất → liquid B."},
+{id:"w7",unit:"3.2",type:"mcq",q:"What happens to the boiling point of water when salt is added?",options:["It goes down.","It stays the same.","It goes up (gets higher).","The water cannot boil."],a:2,
+  ex:"Salt solution boils at 110 °C, which is higher than water (100 °C).",vi:"Điểm sôi tăng lên (cao hơn 100 °C)."},
+{id:"w8",unit:"3.2",type:"match",q:"Study the graph about changing states of water. Write the correct process in each box.",img:()=>heatingCurveSVG({boxes:true}),
+  choices:["melting","freezing","boiling","condensing"],rows:[{l:"Box 1 (B, arrow →)",a:"melting"},{l:"Box 2 (B, arrow ←)",a:"freezing"},{l:"Box 3 (D, arrow →)",a:"boiling"}],
+  ex:"Arrow → means heating: at 0 °C ice melts, at 100 °C water boils. Arrow ← means cooling: water freezes.",vi:"Mũi tên → là đun nóng (melting, boiling). Mũi tên ← là làm lạnh (freezing)."},
+{id:"w9",unit:"3.2",type:"match",q:"What are the physical states of water at A, C and E?",img:()=>heatingCurveSVG({}),
+  choices:["solid","liquid","gas"],rows:[{l:"A",a:"solid"},{l:"C",a:"liquid"},{l:"E",a:"gas"}],
+  ex:"A is below 0 °C (ice), C is between 0 and 100 °C (liquid water), E is above 100 °C (water vapour/steam).",vi:"A: rắn, C: lỏng, E: khí."},
+{id:"w10",unit:"3.2",type:"short",marks:2,q:"When the ice reaches 0 °C, what starts happening? Use the particle model to explain.",
+  points:[{t:"the ice starts to melt",k:["melt"]},{t:"particles gain heat/energy, vibrate more / move faster, break away from their fixed positions / move around",k:["gain","energy","vibrate more","faster","break","move around","slide","more freely"]}],
+  model:"The ice starts to melt. The particles gain heat energy and vibrate more, so they break away from their fixed positions and can move around each other.",
+  vi:"Ý 1: đá bắt đầu nóng chảy. Ý 2: các hạt nhận năng lượng nhiệt, rung mạnh hơn, rời khỏi vị trí cố định và có thể trượt qua nhau."},
+{id:"w11",unit:"3.2",type:"short",marks:2,q:"As the liquid water reaches 100 °C, what happens? Use the particle model to explain.",
+  points:[{t:"the water boils / turns into a gas (steam)",k:["boil","gas","steam","vapour"]},{t:"particles gain more energy, move very fast and far apart / escape",k:["gain","energy","faster","fast","far apart","further apart","escape"]}],
+  model:"The water boils and changes into a gas (steam). The particles gain more heat energy, move very fast and move far apart from each other.",
+  vi:"Ý 1: nước sôi, chuyển thành khí. Ý 2: hạt nhận thêm năng lượng, chuyển động rất nhanh và ở xa nhau."},
+{id:"w12",unit:"3.2",type:"match",q:"The pictures show particles of two substances. Picture A: particles far apart and vibrating. Picture B: particles close together. Write A or B.",img:particlesABSVG,
+  choices:["A","B"],each:0.5,rows:[
+   {l:"The substance contracts.",a:"B"},{l:"Particles move faster.",a:"A"},{l:"Particles move closer together.",a:"B"},{l:"Particles gain heat.",a:"A"},
+   {l:"The substance expands.",a:"A"},{l:"Particles lose heat.",a:"B"},{l:"Particles move more slowly.",a:"B"},{l:"Particles move further apart.",a:"A"}],
+  ex:"A = heated: gain heat, move faster, further apart, expands. B = cooled: lose heat, slower, closer together, contracts.",
+  vi:"A = được đun nóng (nở ra). B = bị làm lạnh (co lại)."},
+{id:"w13",unit:"3.2",type:"mcq",q:"Does water expand or contract when it freezes?",options:["It expands.","It contracts.","It stays the same size."],a:0,
+  ex:"Water is special: it expands when it freezes. That is why ice floats and pipes can burst.",vi:"Nước NỞ RA khi đông đặc."},
+{id:"w14",unit:"3.2",type:"match",q:"Chen finds the melting points and boiling points of some substances. Which state is each substance in at room temperature (about 20 °C)?",
+  html:`<table class="t"><tr><th>substance</th><th>melting point °C</th><th>boiling point °C</th></tr><tr><td>X</td><td>−210</td><td>−196</td></tr><tr><td>Y</td><td>0</td><td>100</td></tr><tr><td>Z</td><td>1064</td><td>2836</td></tr></table>`,
+  choices:["solid","liquid","gas"],rows:[{l:"X",a:"gas"},{l:"Y",a:"liquid"},{l:"Z",a:"solid"}],
+  ex:"X boils at −196 °C, which is below room temperature → gas. Y: 0 < 20 < 100 → liquid. Z melts at 1064 °C, far above room temperature → solid.",
+  vi:"So sánh 20 °C với điểm nóng chảy và điểm sôi."},
+{id:"w15",unit:"3.2",type:"mcq",q:"In Chen’s table (X: −210/−196, Y: 0/100, Z: 1064/2836), which substance could be pure water?",options:["X","Y","Z"],a:1,
+  ex:"Pure water melts at 0 °C and boils at 100 °C.",vi:"Nước tinh khiết: 0 °C và 100 °C → Y."},
+{id:"w16",unit:"3.2",type:"mcq",q:"Why can water pipes burst in very cold weather?",options:["The water boils.","The water freezes and expands.","The water evaporates.","The pipe contracts and becomes bigger."],a:1,
+  ex:"Water expands when it freezes and pushes on the pipe.",vi:"Nước đóng băng nở ra làm vỡ ống."},
+{id:"w17",unit:"3.2",type:"mcq",q:"While pure water is boiling, its temperature…",options:["keeps rising","stays at 100 °C","goes down","stays at 0 °C"],a:1,
+  ex:"During a change of state the temperature stays the same (flat part of the graph).",vi:"Trong lúc sôi, nhiệt độ giữ nguyên 100 °C."},
+{id:"w18",unit:"3.2",type:"mcq",q:"A metal lid is stuck on a glass jar. Dad puts the lid in hot water and it comes off easily. Why?",
+  options:["The metal lid expands when heated.","The particles in the lid get bigger.","The lid contracts.","The lid melts."],a:0,
+  ex:"Heating makes the particles move faster and further apart, so the lid expands. The particles themselves do not get bigger.",vi:"Nắp kim loại nở ra khi nóng (hạt không to ra, chỉ xa nhau hơn)."},
+
+/* ===== UNIT 3.3 ===== */
+{id:"e1",unit:"3.3",type:"fill",q:"Ahmed makes a model of the water cycle. He pours hot water into a beaker, covers it with a plastic sheet and puts ice on the sheet. Complete the sentences.",
+  bank:["boils","condenses","dissolves","evaporates","melts"],text:"Water {0} from the hot water.<br>This water {1} on the plastic sheet.",
+  answers:[["evaporates"],["condenses"]],vi:"Nước nóng bay hơi (evaporates), gặp tấm nhựa lạnh thì ngưng tụ (condenses)."},
+{id:"e2",unit:"3.3",type:"short",marks:1,q:"In Ahmed’s model, water drips from the plastic sheet into the hot water. Write down the name of this process in the water cycle.",
+  points:[{t:"precipitation (rain)",k:["precipitation","rain"]}],model:"Precipitation.",vi:"Nhỏ giọt xuống = giáng thủy (precipitation). Chú ý viết đúng chính tả!"},
+{id:"e3",unit:"3.3",type:"mcq",q:"Which statement explains why Ahmed uses a model?",options:["to add ice to hot water","to keep the plastic sheet in place","to measure the temperature of the hot water","to show what happens during the water cycle"],a:3,
+  ex:"Scientists use models to show things that are too big or too slow to see, like the water cycle.",vi:"Mô hình dùng để thể hiện điều xảy ra trong vòng tuần hoàn nước."},
+{id:"e4",unit:"3.3",type:"short",marks:1,q:"There is <b>hot</b> water in the beaker. Describe what Ahmed does to make sure he is safe during this investigation.",
+  points:[{t:"a sensible safety action with hot water (adult pours / do not touch / heat-proof gloves / goggles / flat table / careful)",k:["adult","teacher","not touch","don't touch","do not touch","glove","goggle","careful","flat","table","slowly","spill"]}],
+  model:"He asks an adult to pour the hot water and he does not touch the hot water or the beaker. He can wear heat-proof gloves and goggles.",vi:"Người lớn rót nước nóng; không chạm vào nước/cốc nóng; đeo găng chịu nhiệt, kính bảo hộ."},
+{id:"e5",unit:"3.3",type:"short",marks:1,q:"A gas condenses. What happens to the particles when a gas condenses?",
+  points:[{t:"lose energy/heat, move more slowly, move closer together",k:["lose","closer","slow","less energy","together"]}],
+  model:"The particles lose heat energy, move more slowly and move closer together (to form a liquid).",vi:"Hạt mất năng lượng nhiệt, chậm lại, lại gần nhau hơn."},
+{id:"e6",unit:"3.3",type:"short",marks:2,q:"Explain why condensation is the reverse process to evaporation.",
+  points:[{t:"evaporation: liquid → gas (gains heat)",k:[["evaporat","liquid","gas"],"liquid to gas","liquid into gas","liquid into a gas","liquid changes to gas","liquid changes into a gas","liquid turns into gas","liquid turns into a gas","liquid becomes a gas","liquid becomes gas"]},
+          {t:"condensation: gas → liquid (loses heat / cools)",k:[["condens","gas","liquid"],"gas to liquid","gas into liquid","gas into a liquid","gas changes to liquid","gas changes into a liquid","gas turns into liquid","gas turns into a liquid","gas becomes a liquid","gas becomes liquid","back into a liquid","back into liquid"]}],
+  model:"In evaporation, a liquid gains heat and changes into a gas. In condensation, a gas loses heat (cools) and changes back into a liquid. So condensation is the opposite of evaporation.",
+  vi:"2 điểm = 2 ý: bay hơi là lỏng → khí; ngưng tụ là khí → lỏng (ngược lại)."},
+{id:"e7",unit:"3.3",type:"short",marks:2,q:"Describe what happens to the <b>particles</b> of water during the evaporation of water.",
+  points:[{t:"particles gain heat energy / move faster",k:["gain","energy","faster","heat"]},{t:"they escape from the surface / move far apart as a gas",k:["escape","surface","far apart","further apart","spread","leave","gas","vapour"]}],
+  model:"The particles gain heat energy and move faster. Particles at the surface escape from the liquid and move far apart as a gas (water vapour).",
+  vi:"Ý 1: hạt nhận năng lượng, chuyển động nhanh hơn. Ý 2: hạt ở bề mặt thoát ra, ở xa nhau thành khí."},
+{id:"e8",unit:"3.3",type:"fill",q:"Compare the processes of boiling and evaporation. Fill in the blanks.",
+  bank:["liquid","gas","only at the boiling point","at the surface of","quickly","bubbles are formed"],
+  text:`<table class="t"><tr><th>Evaporation</th><th>Boiling</th></tr>
+   <tr><td colspan="2">Both gain heat. These processes change {0} into {1}.</td></tr>
+   <tr><td>Happens at any temperature</td><td>Happens {2}</td></tr>
+   <tr><td>Happens {3} the liquid</td><td>Happens throughout the liquid</td></tr>
+   <tr><td>Occurs slowly</td><td>Occurs {4}</td></tr>
+   <tr><td>No bubbles formed</td><td>{5}</td></tr></table>`,
+  answers:[["liquid","a liquid"],["gas","a gas"],["only at the boiling point","at the boiling point","at boiling point","only at boiling point"],["at the surface of","on the surface of","at the top of"],["quickly","fast"],["bubbles are formed","bubbles formed","bubbles"]],
+  marks:5,vi:"Bay hơi: mọi nhiệt độ, ở bề mặt, chậm, không bọt. Sôi: chỉ ở điểm sôi, khắp chất lỏng, nhanh, có bọt."},
+{id:"e9",unit:"3.3",type:"short",marks:1,q:"Water cycle: Where does the heat come from to make water evaporate from rivers, lakes and seas?",
+  points:[{t:"the Sun",k:["sun"]}],model:"From the Sun.",vi:"Từ Mặt Trời."},
+{id:"e10",unit:"3.3",type:"short",marks:1,q:"Water cycle: Where else does evaporation happen (not only seas, rivers and lakes)?",
+  points:[{t:"from plants’ leaves (transpiration) / from the soil",k:["plant","leaves","leaf","tree","soil","ground","transpiration"]}],
+  model:"From the leaves of plants (transpiration) and from the soil.",vi:"Từ lá cây (thoát hơi nước) và từ đất."},
+{id:"e11",unit:"3.3",type:"short",marks:1,q:"Water cycle: Where does the evaporated water go?",
+  points:[{t:"rises up into the air / sky / forms clouds",k:["air","sky","up","cloud","atmosphere"]}],
+  model:"It rises up into the air as water vapour and forms clouds.",vi:"Bay lên không khí, tạo thành mây."},
+{id:"e12",unit:"3.3",type:"short",marks:2,q:"(a) What happens to water vapour when it condenses? (b) Where in the drawing does this happen?",
+  points:[{t:"(a) it cools and turns into tiny drops of (liquid) water",k:["drop","droplet","liquid","water"]},{t:"(b) in the clouds / high in the sky",k:["cloud","sky","high"]}],
+  model:"(a) It cools and changes into tiny drops of liquid water. (b) High in the sky, where it forms clouds.",vi:"(a) Hơi nước lạnh đi thành giọt nước nhỏ. (b) Trên cao, tạo thành mây."},
+{id:"e13",unit:"3.3",type:"short",marks:1,q:"Water cycle: How does the evaporated water get back to Earth?",
+  points:[{t:"as rain, snow or hail (precipitation)",k:["rain","snow","hail","precipitation"]}],
+  model:"It falls as rain, snow or hail (precipitation).",vi:"Rơi xuống dưới dạng mưa, tuyết, mưa đá."},
+{id:"e14",unit:"3.3",type:"short",marks:2,q:"Where in the water cycle can (a) freezing happen? (b) melting happen?",
+  points:[{t:"(a) freezing: in very cold clouds / on mountain tops (snow, hail)",k:["cloud","mountain","snow","hail","top"]},{t:"(b) melting: snow/ice on mountains melts into rivers",k:["melt","river","mountain"]}],
+  model:"(a) Freezing happens in very cold clouds and on high mountains (snow and hail form). (b) Melting happens when snow on the mountains melts and flows into rivers.",
+  vi:"(a) Đông đặc: ở mây rất lạnh, đỉnh núi (tuyết, mưa đá). (b) Nóng chảy: tuyết trên núi tan chảy xuống sông."},
+{id:"e15",unit:"3.3",type:"fill",q:"Complete these sentences about the water cycle. Use the words in the box.",
+  bank:["water","precipitation","condenses","evaporates","water vapour","rain"],
+  text:"a. Water on the Earth’s surface {0} and moves up into the air as {1}.<br>b. The water vapour cools and {2} as it rises into the air.<br>c. {3}, snow and hail are forms of {4} that bring {5} back to the Earth’s surface.",
+  answers:[["evaporates"],["water vapour"],["condenses"],["rain"],["precipitation"],["water"]],vi:"evaporates – water vapour – condenses – Rain – precipitation – water."},
+{id:"e16",unit:"3.3",type:"short",marks:1,q:"Why is the water cycle important to us?",
+  points:[{t:"gives us (fresh) water to drink / for plants, animals, farming",k:["drink","fresh water","plant","animal","live","crop","farm","need water","water for"]}],
+  model:"The water cycle gives us fresh water to drink, and water for plants and animals to live.",vi:"Cung cấp nước ngọt cho con người uống, cho cây cối và động vật."},
+{id:"e17",unit:"3.3",type:"match",q:"Write each phase of the water cycle next to its definition.",choices:["precipitation","collection","condensation","evaporation"],
+  rows:[{l:"Water falls to the ground.",a:"precipitation"},{l:"Water runs downhill to form lakes and oceans.",a:"collection"},{l:"The Sun’s heat turns water into a gas called water vapour.",a:"evaporation"},{l:"Water vapour gathers to form clouds.",a:"condensation"}],
+  ex:"Learn the order: evaporation → condensation → precipitation → collection.",vi:"Thứ tự: bay hơi → ngưng tụ → giáng thủy → tích tụ."},
+{id:"e18",unit:"3.3",type:"tf",q:"Which of these statements are true and which are false?",items:[
+  {s:"All liquids have the same boiling point.",a:false,ex:"Different liquids have different boiling points."},
+  {s:"Particles that condense have lots of energy.",a:false,ex:"They lose energy when they condense."},
+  {s:"When water boils, it becomes a gas.",a:true},
+  {s:"When we cool a gas, its particles expand.",a:false,ex:"Particles never expand; they move closer together."},
+  {s:"Condensation is the reverse of evaporation.",a:true},
+  {s:"The Sun is the source of heat energy for the water cycle.",a:true}],vi:"Bẫy: hạt KHÔNG bao giờ nở ra; hạt ngưng tụ MẤT năng lượng."},
+{id:"e19",unit:"3.3",type:"mcq",q:"Look at the particle model. Which process does it show?",img:processDiagramSVG,options:["melting","evaporation (or boiling)","condensation","freezing"],a:1,
+  ex:"The particles go from close together (liquid) to far apart (gas): a liquid changes into a gas.",vi:"Hạt từ gần nhau (lỏng) → xa nhau (khí): bay hơi/sôi."},
+{id:"e20",unit:"3.3",type:"short",marks:1,q:"Look at the particle model above (liquid → gas). Explain what happens to the particles during this process.",img:processDiagramSVG,
+  points:[{t:"particles gain energy / move faster and move far apart",k:["gain","faster","far apart","further apart","spread","escape"]}],
+  model:"The particles gain heat energy, move faster and move further apart to become a gas.",vi:"Hạt nhận nhiệt, chuyển động nhanh hơn và ra xa nhau."},
+{id:"e21",unit:"3.3",type:"mcq",q:"Which process: plants give off water vapour from their leaves?",options:["condensation","precipitation","transpiration","collection"],a:2,ex:"Transpiration = water vapour from leaves.",vi:"Thoát hơi nước (transpiration)."},
+{id:"e22",unit:"3.3",type:"mcq",q:"On which day will wet washing dry fastest?",options:["a cold, still day","a warm, windy day","a cold, rainy day","a warm, still night"],a:1,
+  ex:"Evaporation is faster when it is warmer and windy.",vi:"Trời ấm và có gió → bay hơi nhanh nhất."},
+{id:"e23",unit:"3.3",type:"mcq",q:"Drops of water appear on the outside of a glass of iced drink. Where do they come from?",
+  options:["The drink leaks through the glass.","Water vapour in the air cools and condenses on the cold glass.","The ice melts through the glass.","The glass is evaporating."],a:1,
+  ex:"Water vapour in the air touches the cold glass, cools and condenses into liquid drops.",vi:"Hơi nước trong không khí gặp cốc lạnh → ngưng tụ."},
+{id:"e24",unit:"3.3",type:"mcq",q:"A puddle disappears on a sunny day. The water has…",options:["melted","condensed","evaporated","frozen"],a:2,ex:"Liquid water changes into water vapour – evaporation.",vi:"Nước bay hơi."},
+{id:"e25",unit:"3.3",type:"mcq",q:"Evaporation can happen…",options:["only at 100 °C","only at 0 °C","at any temperature","only when water is boiling"],a:2,ex:"Evaporation happens at any temperature, at the surface of a liquid.",vi:"Bay hơi xảy ra ở mọi nhiệt độ."},
+{id:"e26",unit:"3.3",type:"match",q:"Ahmed’s model shows the water cycle. Match each part of the model to the real world.",choices:["the Sun’s heat","the sea","cold air high in the sky","rain"],
+  rows:[{l:"hot water in the beaker",a:"the sea"},{l:"heat in the hot water",a:"the Sun’s heat"},{l:"cold plastic sheet with ice",a:"cold air high in the sky"},{l:"drops falling from the sheet",a:"rain"}],
+  ex:"Each part of a model stands for something real.",vi:"Mỗi phần của mô hình đại diện cho một thứ thật."},
+];
+
+/* =====================================================================
+   LƯU TIẾN ĐỘ (localStorage)
+   ===================================================================== */
+const STORE_KEY="sci4_unit3_v1";
+let S = {best:{}, tests:[], showVI:true};
+try{ const raw=localStorage.getItem(STORE_KEY); if(raw) S=Object.assign(S,JSON.parse(raw)); }catch(e){}
+function save(){ try{localStorage.setItem(STORE_KEY,JSON.stringify(S));}catch(e){} }
+function record(q,score){
+  const max=qMax(q); const prev=S.best[q.id];
+  S.best[q.id]={last:score,max,best:Math.max(score,prev?prev.best:0),wrong:score<max};
+  save();
+}
+
+/* =====================================================================
+   TIỆN ÍCH
+   ===================================================================== */
+const $=s=>document.querySelector(s);
+function el(tag,attrs={},html=""){const e=document.createElement(tag);for(const k in attrs){if(k==="class")e.className=attrs[k];else if(k.startsWith("on"))e[k]=attrs[k];else e.setAttribute(k,attrs[k]);}if(html)e.innerHTML=html;return e;}
+const norm=s=>(" "+String(s).toLowerCase().replace(/[’']/g,"'").replace(/[^a-z0-9'°\s]/g," ").replace(/\s+/g," ").trim()+" ");
+function speak(t){try{const u=new SpeechSynthesisUtterance(t.replace(/<[^>]+>/g,""));u.lang="en-GB";u.rate=.9;speechSynthesis.cancel();speechSynthesis.speak(u);}catch(e){}}
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function qMax(q){
+  if(q.marks!=null) return q.marks;
+  if(q.type==="mcq") return 1;
+  if(q.type==="tf") return q.items.length;
+  if(q.type==="fill") return q.answers.length;
+  if(q.type==="match") return q.rows.length*(q.each||1);
+  if(q.type==="barchart") return q.data.filter(d=>!d.given).length;
+  return 1;
+}
+const fmt=n=>Math.round(n*10)/10;
+
+/* =====================================================================
+   RENDER CÂU HỎI — trả về {check(): score}
+   ===================================================================== */
+function renderQuestion(q, idx, onScored, mode){
+  const box=el("div",{class:"q"});
+  const u=UNITS[q.unit];
+  box.appendChild(el("div",{class:"qhead"},`<div><span class="unitpill ${u.cls}">Unit ${q.unit}</span><b>Câu ${idx}</b> <button class="speak" title="Đọc to">🔊</button></div><span class="marks">[${qMax(q)}]</span>`));
+  box.querySelector(".speak").onclick=()=>speak(q.q+" "+(q.text||"").replace(/\{\d\}/g," blank ")+(q.options?(" "+q.options.join(", ")):""));
+  box.appendChild(el("div",{class:"qtext"},q.q));
+  if(q.img) box.appendChild(el("div",{class:"svgwrap"},q.img()));
+  if(q.html) box.appendChild(el("div",{},q.html));
+  const body=el("div"); box.appendChild(body);
+  const fb=el("div"); box.appendChild(fb);
+  let api;
+  const T={mcq:rMCQ,tf:rTF,fill:rFill,match:rMatch,short:rShort,barchart:rBar}[q.type];
+  api=T(q,body);
+  let done=false;
+  const btnRow=el("div",{class:"row",style:"margin-top:10px"});
+  const chk=el("button",{class:"btn"},"Kiểm tra ✓");
+  if(mode==="practice"){btnRow.appendChild(chk);box.appendChild(btnRow);}
+  function check(){
+    if(done) return api.score;
+    done=true; chk.disabled=true;
+    const sc=api.grade();
+    showFB(sc);
+    record(q,sc);
+    onScored && onScored(sc,q);
+    return sc;
+  }
+  function showFB(sc){
+    const max=qMax(q);
+    const cls=sc>=max?"good":sc>0?"part":"bad";
+    const head=sc>=max?"🎉 Chính xác! Full marks":sc>0?"👍 Gần đúng rồi":"❌ Chưa đúng";
+    let h=`<b>${head} — ${fmt(sc)}/${max} điểm</b>`;
+    if(q.model) h+=`<div class="model">✍️ <b>Full-mark answer:</b> ${q.model} <button class="speak">🔊</button></div>`;
+    if(q.ex) h+=`<div style="margin-top:6px">💡 ${q.ex}</div>`;
+    if(q.vi) h+=`<div class="vi">🇻🇳 ${q.vi}</div>`;
+    fb.className="fb "+cls; fb.innerHTML=h;
+    const sp=fb.querySelector(".model .speak"); if(sp) sp.onclick=()=>speak(q.model);
+    if(api.after) api.after(fb,(newSc)=>{ const old=api.score; api.score=newSc; record(q,newSc); onScored&&onScored(newSc-old,q,true); showFB(newSc);});
+  }
+  chk.onclick=check;
+  return {node:box,check,get score(){return api.score||0}};
+}
+
+function rMCQ(q,body){
+  let sel=null; const btns=[];
+  const order=q.options.map((o,i)=>i);
+  order.forEach(i=>{const b=el("button",{class:"opt"},`${String.fromCharCode(65+btns.length)}. ${q.options[i]}`);b.onclick=()=>{if(api.locked)return;sel=i;btns.forEach(x=>x.classList.remove("sel"));b.classList.add("sel");};b.dataset.i=i;btns.push(b);body.appendChild(b);});
+  const api={grade(){api.locked=true;btns.forEach(b=>{const i=+b.dataset.i;if(i===q.a)b.classList.add("right");else if(i===sel)b.classList.add("wrong");});api.score=sel===q.a?1:0;return api.score;}};
+  return api;
+}
+function rTF(q,body){
+  const ans=q.items.map(()=>null); const rows=[];
+  q.items.forEach((it,i)=>{
+    const r=el("div",{class:"tfrow"},`<div class="s">${it.s}</div>`);
+    const t=el("button",{class:"tfb"},"True"),f=el("button",{class:"tfb"},"False");
+    t.onclick=()=>{if(api.locked)return;ans[i]=true;t.classList.add("sel");f.classList.remove("sel");};
+    f.onclick=()=>{if(api.locked)return;ans[i]=false;f.classList.add("sel");t.classList.remove("sel");};
+    r.append(t,f);body.appendChild(r);rows.push({r,t,f});
+  });
+  const api={grade(){api.locked=true;let s=0;q.items.forEach((it,i)=>{const {r,t,f}=rows[i];const ok=ans[i]===it.a;if(ok)s++;(it.a?t:f).classList.add("right");if(ans[i]!==null&&!ok)(ans[i]?t:f).classList.add("wrong");if(!ok&&it.ex)r.querySelector(".s").innerHTML+=`<div class="muted" style="font-size:14px">➜ ${it.ex}</div>`;});api.score=s*(qMax(q)/q.items.length);return api.score;}};
+  return api;
+}
+function rFill(q,body){
+  let focus=null;
+  if(q.bank){const bk=el("div",{class:"bank"});shuffle(q.bank).forEach(w=>{const c=el("button",{class:"chip"},w);c.onclick=()=>{if(api.locked)return;const target=focus&&!focus.value?focus:inputs.find(x=>!x.value)||focus;if(target){target.value=w;target.dispatchEvent(new Event("input"));const nx=inputs.find(x=>!x.value);if(nx){focus=nx;}}};bk.appendChild(c);});body.appendChild(bk);}
+  const txt=el("div",{style:"line-height:2.3"},q.text.replace(/\{(\d)\}/g,(m,i)=>`<input class="blank" data-i="${i}" autocomplete="off" autocapitalize="off" spellcheck="false">`));
+  body.appendChild(txt);
+  const inputs=[...txt.querySelectorAll(".blank")].sort((a,b)=>a.dataset.i-b.dataset.i);
+  inputs.forEach(x=>{x.onfocus=()=>focus=x;x.oninput=()=>{x.style.width=Math.max(120,x.value.length*10+30)+"px";};});
+  const api={grade(){api.locked=true;let s=0;inputs.forEach(x=>{const i=+x.dataset.i;x.disabled=true;const ok=q.answers[i].some(a=>norm(a)===norm(x.value));if(ok){s++;x.classList.add("right");}else{x.classList.add("wrong");x.insertAdjacentHTML("afterend",` <span style="color:var(--ok);font-weight:700">(${q.answers[i][0]})</span>`);}});api.score=s*(qMax(q)/q.answers.length);return api.score;}};
+  return api;
+}
+function rMatch(q,body){
+  const sels=q.rows.map(r=>{const row=el("div",{class:"matchrow"},`<div class="l">${r.l}</div>`);const s=el("select");s.innerHTML=`<option value="">— chọn —</option>`+q.choices.map(c=>`<option>${c}</option>`).join("");row.appendChild(s);body.appendChild(row);return s;});
+  const api={grade(){api.locked=true;let s=0;sels.forEach((x,i)=>{x.disabled=true;if(x.value===q.rows[i].a){s++;x.classList.add("right");}else{x.classList.add("wrong");x.insertAdjacentHTML("afterend",` <b style="color:var(--ok)">→ ${q.rows[i].a}</b>`);}});api.score=s*(q.each||1);return api.score;}};
+  return api;
+}
+function rShort(q,body){
+  const ta=el("textarea",{placeholder:"Write your answer in English… (Viết câu trả lời bằng tiếng Anh, đủ ý)"});
+  body.appendChild(ta);
+  body.appendChild(el("div",{class:"muted",style:"font-size:14px"},`💬 Câu này ${qMax(q)} điểm → cần khoảng ${q.all?"1 câu đầy đủ":qMax(q)+" ý"}.`));
+  let ticks=[];
+  function calc(){const n=ticks.filter(Boolean).length;if(q.all)return n===q.points.length?qMax(q):0;return Math.min(qMax(q),n);}
+  const api={grade(){api.locked=true;ta.disabled=true;const t=norm(ta.value);const has=k=>t.includes(norm(k).trim());ticks=q.points.map(p=>p.k.some(k=>Array.isArray(k)?k.every(has):has(k)));api.score=calc();return api.score;},
+    after(fb,update){
+      const c=el("div",{class:"check",style:"margin-top:8px"},`<div style="font-weight:700">Ý cần có (máy tự chấm theo từ khoá – bố mẹ/con có thể tick lại cho đúng):</div>`);
+      q.points.forEach((p,i)=>{const lb=el("label");const cb=el("input",{type:"checkbox"});cb.checked=ticks[i];cb.onchange=()=>{ticks[i]=cb.checked;update(calc());};lb.append(cb,document.createTextNode(" "+p.t));c.appendChild(lb);});
+      fb.appendChild(c);
+    }};
+  return api;
+}
+function rBar(q,body){
+  const vals=q.data.map(d=>d.given?d.v:0);
+  const W=420,H=260,x0=50,y0=220,top=20,maxV=120,bw=52,gap=18;
+  const wrap=el("div",{class:"svgwrap"});body.appendChild(wrap);
+  const ctr=el("div",{class:"row",style:"justify-content:center"});body.appendChild(ctr);
+  const yOf=v=>y0-(v/maxV)*(y0-top);
+  function draw(){
+    let g=`<svg viewBox="0 0 ${W} ${H}" width="${W}" xmlns="http://www.w3.org/2000/svg" font-family="system-ui" font-size="11">`;
+    for(let v=0;v<=maxV;v+=10){g+=`<line x1="${x0}" x2="${W-10}" y1="${yOf(v)}" y2="${yOf(v)}" stroke="${v%20?'#eee':'#ccc'}"/>`;if(v%20===0)g+=`<text x="${x0-6}" y="${yOf(v)+4}" text-anchor="end">${v}</text>`;}
+    g+=`<text x="12" y="120" transform="rotate(-90 12 120)" text-anchor="middle" font-weight="700">boiling point in °C</text>`;
+    q.data.forEach((d,i)=>{const x=x0+gap/2+i*(bw+gap);const v=vals[i];
+      if(v>0)g+=`<rect x="${x}" y="${yOf(v)}" width="${bw}" height="${y0-yOf(v)}" fill="${d.given?'#d9d9d9':'#7fb0ff'}" stroke="#333"/>`;
+      g+=`<rect data-i="${i}" class="hit" x="${x}" y="${top}" width="${bw}" height="${y0-top}" fill="transparent" style="cursor:${d.given?'default':'pointer'}"/>`;
+      g+=`<text x="${x+bw/2}" y="${y0+14}" text-anchor="middle" font-weight="700">${d.n}</text>`;
+      if(!d.given)g+=`<text x="${x+bw/2}" y="${yOf(v)-4}" text-anchor="middle" fill="#2f6fec" font-weight="700">${v}</text>`;});
+    g+=`<line x1="${x0}" y1="${y0}" x2="${W-10}" y2="${y0}" stroke="#222" stroke-width="2"/><line x1="${x0}" y1="${top}" x2="${x0}" y2="${y0}" stroke="#222" stroke-width="2"/></svg>`;
+    wrap.innerHTML=g;
+    const svg=wrap.querySelector("svg");
+    wrap.querySelectorAll(".hit").forEach(h=>h.onclick=(ev)=>{const i=+h.dataset.i;if(q.data[i].given||api.locked)return;const pt=svg.createSVGPoint();pt.x=ev.clientX;pt.y=ev.clientY;const p=pt.matrixTransform(svg.getScreenCTM().inverse());let v=Math.round(((y0-p.y)/(y0-top))*maxV/10)*10;vals[i]=Math.max(0,Math.min(maxV,v));draw();});
+  }
+  q.data.forEach((d,i)=>{if(d.given)return;const c=el("div",{class:"row",style:"gap:4px;margin:4px 8px"},`<span style="font-weight:600">${d.n}:</span>`);
+    const m=el("button",{class:"btn sec"},"−"),p=el("button",{class:"btn sec"},"+");m.onclick=()=>{if(!api.locked){vals[i]=Math.max(0,vals[i]-10);draw();}};p.onclick=()=>{if(!api.locked){vals[i]=Math.min(maxV,vals[i]+10);draw();}};c.append(m,p);ctr.appendChild(c);});
+  draw();
+  const api={grade(){api.locked=true;let s=0;const wrong=[];q.data.forEach((d,i)=>{if(d.given)return;if(vals[i]===d.v)s++;else wrong.push(`${d.n} = ${d.v} °C`);});if(wrong.length)body.appendChild(el("div",{style:"color:var(--bad);font-weight:600"},"Đúng phải là: "+wrong.join(", ")));api.score=s;return s;}};
+  return api;
+}
+
+/* =====================================================================
+   CÁC TRANG
+   ===================================================================== */
+const PAGES=[
+ ["home","🏠 Tổng quan"],["learn","📘 Bài học"],["sim","🧪 Mô phỏng hạt"],["vocab","🔤 Từ vựng"],
+ ["practice","✏️ Luyện tập"],["test","📝 Thi thử"],["review","🔁 Ôn câu sai"],["tips","⭐ Mẹo điểm tối đa"]];
+let current="home"; let simStop=null;
+function nav(){const n=$("#nav");n.innerHTML="";PAGES.forEach(([k,l])=>{const b=el("button",{class:k===current?"on":""},l);b.onclick=()=>go(k);n.appendChild(b);});
+  const v=el("button",{},S.showVI?"🇻🇳 Ẩn tiếng Việt":"🇻🇳 Hiện tiếng Việt");v.onclick=()=>{S.showVI=!S.showVI;save();applyVI();nav();};n.appendChild(v);}
+function applyVI(){document.body.classList.toggle("novi",!S.showVI);}
+function go(p,arg){ if(simStop){simStop();simStop=null;} current=p; nav(); const a=$("#app"); a.innerHTML=""; window.scrollTo(0,0); ({home,learn,sim,vocab,practice,test,review,tips})[p](a,arg); }
+
+/* ---------- Tổng quan ---------- */
+function home(a){
+  a.appendChild(el("h2",{},"Chào con! 👋 Hôm nay mình ôn gì nhỉ?"));
+  const g=el("div",{class:"grid"});
+  Object.keys(UNITS).forEach(u=>{
+    const qs=Q.filter(q=>q.unit===u); const mastered=qs.filter(q=>S.best[q.id]&&S.best[q.id].best>=qMax(q)).length;
+    const pct=Math.round(mastered/qs.length*100);
+    const c=el("div",{class:"card"},`<span class="unitpill ${UNITS[u].cls}">Unit ${u}</span><h3 style="margin-top:6px">${UNITS[u].name}</h3><div class="muted">${UNITS[u].vi}</div>
+      <div style="margin:10px 0 4px">Đã thành thạo: <b>${mastered}/${qs.length}</b> câu (${pct}%)</div><div class="bar"><i style="width:${pct}%"></i></div>`);
+    const r=el("div",{class:"row",style:"margin-top:10px"});
+    const b1=el("button",{class:"btn sec"},"Học");b1.onclick=()=>go("learn",u);
+    const b2=el("button",{class:"btn"},"Luyện tập");b2.onclick=()=>go("practice",u);
+    r.append(b1,b2);c.appendChild(r);g.appendChild(c);
+  });
+  a.appendChild(g);
+  const wrong=Q.filter(q=>S.best[q.id]&&S.best[q.id].wrong).length;
+  const c2=el("div",{class:"card"},`<h3>📈 Kết quả thi thử</h3>`);
+  if(!S.tests.length)c2.innerHTML+=`<div class="muted">Chưa có bài thi thử nào. Hãy làm bài ở mục “📝 Thi thử”.</div>`;
+  else{let t=`<table class="t"><tr><th>Ngày</th><th>Điểm</th><th>%</th></tr>`;S.tests.slice(-8).reverse().forEach(x=>t+=`<tr><td>${x.d}</td><td>${fmt(x.s)}/${x.m}</td><td>${Math.round(x.s/x.m*100)}%</td></tr>`);c2.innerHTML+=t+"</table>";}
+  a.appendChild(c2);
+  const c3=el("div",{class:"card"},`<h3>🧭 Lộ trình gợi ý mỗi ngày (20–30 phút)</h3><ol class="pts">
+   <li>Đọc <b>Bài học</b> của 1 unit, nghe phát âm từ khoá 🔊.</li>
+   <li>Chơi <b>Mô phỏng hạt</b> để hiểu vì sao chất nóng chảy, sôi, ngưng tụ.</li>
+   <li>Làm <b>Luyện tập</b> unit đó, đọc kỹ “Full-mark answer” và chép lại câu mẫu.</li>
+   <li>Cuối tuần: làm <b>Thi thử</b> (35 điểm) và <b>Ôn câu sai</b> đến khi không còn câu nào.</li></ol>
+   <div>Câu đang sai cần ôn lại: <b>${wrong}</b></div>`);
+  a.appendChild(c3);
+  const rs=el("button",{class:"btn sec",style:"margin-top:4px"},"Xoá toàn bộ tiến độ");rs.onclick=()=>{if(!rs.dataset.sure){rs.dataset.sure=1;rs.textContent="Bấm lần nữa để xoá hết tiến độ";setTimeout(()=>{delete rs.dataset.sure;rs.textContent="Xoá toàn bộ tiến độ";},4000);return;}S.best={};S.tests=[];save();go("home");};
+  a.appendChild(rs);
+}
+
+/* ---------- Bài học ---------- */
+function learn(a,unit){
+  unit=unit||"3.1";
+  const tabs=el("div",{class:"row",style:"margin-bottom:12px"});
+  Object.keys(UNITS).forEach(u=>{const b=el("button",{class:"btn"+(u===unit?"":" sec")},`Unit ${u}`);b.onclick=()=>go("learn",u);tabs.appendChild(b);});
+  a.appendChild(tabs);
+  a.appendChild(el("h2",{},`Unit ${unit}: ${UNITS[unit].name}`));
+  LESSONS[unit].forEach(L=>{
+    const c=el("div",{class:"card"},`<h3>${L.t}</h3>`);
+    if(L.html)c.innerHTML+=L.html;
+    if(L.pts){const ul=el("ul",{class:"pts"});L.pts.forEach(p=>{const li=el("li",{},p+` <button class="speak">🔊</button>`);li.querySelector(".speak").onclick=()=>speak(p);ul.appendChild(li);});c.appendChild(ul);}
+    if(L.vi)c.appendChild(el("div",{class:"vi"},"🇻🇳 "+L.vi));
+    if(L.key)c.appendChild(el("div",{class:"key"},"<b>✍️ Viết thế này để được điểm tối đa:</b><br>"+L.key));
+    if(L.trap)c.appendChild(el("div",{class:"trap"},"<b>⚠️ Bẫy hay gặp:</b> "+L.trap));
+    a.appendChild(c);
+  });
+  const b=el("button",{class:"btn"},`Luyện tập Unit ${unit} →`);b.onclick=()=>go("practice",unit);a.appendChild(b);
+}
+
+/* ---------- Mô phỏng hạt ---------- */
+function sim(a){
+  a.appendChild(el("h2",{},"🧪 Mô phỏng: đun nóng và làm lạnh nước"));
+  a.appendChild(el("div",{class:"vi"},"Kéo thanh trượt sang phải để ĐUN NÓNG (thêm nhiệt), sang trái để LÀM LẠNH. Quan sát các hạt và chấm đỏ trên đồ thị."));
+  const c=el("div",{class:"card"});
+  c.innerHTML=`<div class="grid" style="align-items:center">
+    <div style="text-align:center"><canvas id="cv" width="320" height="230"></canvas></div>
+    <div><div class="svgwrap">${heatingCurveSVG({marker:true})}</div></div></div>
+    <input type="range" id="en" min="0" max="100" value="5" step="0.5">
+    <div class="row" style="justify-content:space-between"><span>❄️ Làm lạnh</span><span>🔥 Đun nóng</span></div>
+    <div id="info" style="margin-top:10px"></div>`;
+  a.appendChild(c);
+  const cv=c.querySelector("#cv"),ctx=cv.getContext("2d"),W=320,H=230,R=9,N=36,cols=9;
+  const lat=[];for(let i=0;i<N;i++){const r=Math.floor(i/cols),k=i%cols;lat.push({x:W/2-(cols-1)*10+k*20,y:H-R-2-(3-r)*20});}
+  const P=lat.map(l=>({x:l.x,y:l.y,vx:0,vy:0,s:0}));
+  const range=c.querySelector("#en"),info=c.querySelector("#info"),marker=c.querySelector("#hcMarker");
+  let last=+range.value,dir=1;
+  function stateAt(e){
+    if(e<15)return{T:-30+e/15*30,seg:0,nL:0,nG:0};
+    if(e<40)return{T:0,seg:1,nL:Math.round((e-15)/25*N),nG:0};
+    if(e<60)return{T:(e-40)/20*100,seg:2,nL:N,nG:0};
+    if(e<85)return{T:100,seg:3,nL:N,nG:Math.round((e-60)/25*N)};
+    return{T:100+(e-85)/15*30,seg:4,nL:N,nG:N};
+  }
+  function upd(){
+    const e=+range.value; if(e!==last){dir=e>last?1:-1;last=e;}
+    const st=stateAt(e);
+    P.forEach((p,i)=>{p.s=i<st.nG?2:i<st.nL?1:0;});
+    const x=50+e*3.5,y=st.T<=0?170-st.T*1.0:st.T<=100?170-st.T*0.9:80-(st.T-100)*0.9;
+    marker.setAttribute("cx",x);marker.setAttribute("cy",y);
+    const heat=dir>0;
+    const txt=[
+      [`<b>A – SOLID (ice)</b>. Temperature ≈ ${Math.round(st.T)} °C. Particles are close together in rows and only <b>vibrate</b>.`, "Chất rắn: hạt sát nhau, xếp hàng, chỉ rung tại chỗ."],
+      [heat?`<b>B – MELTING at 0 °C</b>. Particles gain heat energy, vibrate more and break away from their fixed positions. The temperature stays at 0 °C.`:`<b>B – FREEZING at 0 °C</b>. Particles lose heat energy, move more slowly and get stuck in fixed positions.`, heat?"Nóng chảy: nhiệt độ giữ 0 °C, năng lượng dùng để phá vỡ hàng.":"Đông đặc: hạt mất năng lượng, xếp lại thành hàng."],
+      [`<b>C – LIQUID water</b>. Temperature ≈ ${Math.round(st.T)} °C. Particles are close together but <b>move around</b> and slide past each other. Some particles at the surface can escape – this is <b>evaporation</b>.`, "Chất lỏng: hạt gần nhau nhưng di chuyển, trượt qua nhau. Ở bề mặt vẫn có bay hơi."],
+      [heat?`<b>D – BOILING at 100 °C</b>. Particles gain more energy, move very fast and escape far apart as a gas. Bubbles form throughout the liquid. The temperature stays at 100 °C.`:`<b>D – CONDENSING at 100 °C</b>. Gas particles lose energy, slow down and move closer together to form a liquid.`, heat?"Sôi: nhiệt độ giữ 100 °C, hạt thoát ra thành khí.":"Ngưng tụ: hạt khí mất năng lượng, lại gần nhau thành lỏng."],
+      [`<b>E – GAS (water vapour / steam)</b>. Temperature ≈ ${Math.round(st.T)} °C. Particles are <b>far apart</b> and move <b>fast in all directions</b>.`, "Chất khí: hạt ở xa nhau, chuyển động nhanh mọi hướng."]][st.seg];
+    info.innerHTML=txt[0]+`<div class="vi">🇻🇳 ${txt[1]}</div>`;
+    return st;
+  }
+  range.oninput=upd;
+  let st=upd(),raf;
+  function step(){
+    st=stateAt(+range.value);
+    const amp=0.6+Math.max(0,st.T+30)/40;
+    for(const [i,p] of P.entries()){
+      if(p.s===0){const l=lat[i];p.x+=(l.x-p.x)*0.2;p.y+=(l.y-p.y)*0.2;p.dx=(Math.random()-.5)*amp;p.dy=(Math.random()-.5)*amp;p.vx=0;p.vy=0;}
+      else if(p.s===1){p.vx+=(Math.random()-.5)*(0.6+st.T/60);p.vy+=0.35;p.vx*=0.9;p.vy*=0.9;p.x+=p.vx;p.y+=p.vy;p.dx=p.dy=0;}
+      else{const sp=Math.hypot(p.vx,p.vy),want=3+Math.max(0,st.T-100)/10;if(sp<0.1){const a=Math.random()*6.28;p.vx=Math.cos(a)*want;p.vy=Math.sin(a)*want-2;}else{p.vx*=want/sp;p.vy*=want/sp;}p.x+=p.vx;p.y+=p.vy;p.dx=p.dy=0;}
+      if(p.x<R){p.x=R;p.vx=Math.abs(p.vx);}if(p.x>W-R){p.x=W-R;p.vx=-Math.abs(p.vx);}
+      if(p.y<R){p.y=R;p.vy=Math.abs(p.vy);}if(p.y>H-R){p.y=H-R;p.vy=-Math.abs(p.vy)*(p.s===2?1:0.2);}
+    }
+    for(let k=0;k<2;k++)for(let i=0;i<N;i++)for(let j=i+1;j<N;j++){const a=P[i],b=P[j];if(a.s===2||b.s===2)continue;const dx=b.x-a.x,dy=b.y-a.y,d=Math.hypot(dx,dy)||0.01,m=2*R+1;if(d<m){const o=(m-d)/2,ux=dx/d,uy=dy/d;if(a.s===1){a.x-=ux*o*(b.s===0?2:1);a.y-=uy*o*(b.s===0?2:1);}if(b.s===1){b.x+=ux*o*(a.s===0?2:1);b.y+=uy*o*(a.s===0?2:1);}}}
+    ctx.clearRect(0,0,W,H);
+    for(const p of P){ctx.beginPath();ctx.arc(p.x+(p.dx||0),p.y+(p.dy||0),R,0,6.283);ctx.fillStyle="#5b9bff";ctx.fill();ctx.strokeStyle="#1d3f7a";ctx.lineWidth=1.5;ctx.stroke();}
+    ctx.fillStyle="#1d3f7a";ctx.font="bold 14px system-ui";ctx.fillText(Math.round(st.T)+" °C",8,18);
+    raf=requestAnimationFrame(step);
+  }
+  step();
+  simStop=()=>cancelAnimationFrame(raf);
+  a.appendChild(el("div",{class:"key"},"<b>Ghi nhớ:</b> Đun nóng → hạt <b>gain heat energy</b>, <b>move faster</b>, <b>move further apart</b>. Làm lạnh → <b>lose heat energy</b>, <b>move more slowly</b>, <b>move closer together</b>. Bản thân hạt KHÔNG to ra hay nhỏ đi."));
+}
+
+/* ---------- Từ vựng ---------- */
+function vocab(a,mode){
+  mode=mode||"cards";
+  const tabs=el("div",{class:"row",style:"margin-bottom:12px"});
+  [["cards","🃏 Thẻ ghi nhớ"],["spell","✍️ Luyện chính tả"],["list","📋 Danh sách"]].forEach(([k,l])=>{const b=el("button",{class:"btn"+(k===mode?"":" sec")},l);b.onclick=()=>go("vocab",k);tabs.appendChild(b);});
+  a.appendChild(tabs);
+  if(mode==="list"){let t=`<table class="t"><tr><th>Word</th><th>Nghĩa</th><th>Meaning</th></tr>`;VOCAB.forEach(v=>t+=`<tr><td><b>${v[0]}</b> <button class="speak" data-w="${v[0]}">🔊</button></td><td>${v[1]}</td><td>${v[2]}</td></tr>`);a.appendChild(el("div",{class:"card"},t+"</table>"));a.querySelectorAll(".speak").forEach(b=>b.onclick=()=>speak(b.dataset.w));return;}
+  if(mode==="cards"){
+    let i=0,flip=false;const deck=shuffle(VOCAB);
+    const c=el("div",{class:"card flash"});const ctrl=el("div",{class:"row",style:"justify-content:center"});
+    function show(){const v=deck[i];c.innerHTML=flip?`${v[1]}<small>${v[2]}</small>`:`${v[0]}<small>Bấm để lật thẻ (${i+1}/${deck.length})</small>`;}
+    c.onclick=()=>{flip=!flip;show();if(flip)speak(deck[i][0]);};
+    const pv=el("button",{class:"btn sec"},"← Trước"),sp=el("button",{class:"btn sec"},"🔊 Nghe"),nx=el("button",{class:"btn"},"Tiếp →");
+    pv.onclick=()=>{i=(i-1+deck.length)%deck.length;flip=false;show();};nx.onclick=()=>{i=(i+1)%deck.length;flip=false;show();};sp.onclick=()=>speak(deck[i][0]);
+    ctrl.append(pv,sp,nx);a.append(c,ctrl);show();return;
+  }
+  // spelling
+  const deck=shuffle(VOCAB).slice(0,10);let i=0,score=0;
+  const c=el("div",{class:"card"});a.appendChild(c);
+  function show(){
+    if(i>=deck.length){c.innerHTML=`<div class="big">${score}/${deck.length}</div><p>${score===deck.length?"Xuất sắc! 🌟":"Luyện thêm lần nữa nhé!"}</p>`;const b=el("button",{class:"btn"},"Làm lại");b.onclick=()=>go("vocab","spell");c.appendChild(b);return;}
+    const v=deck[i];
+    c.innerHTML=`<div class="muted">Từ ${i+1}/${deck.length} – nghe và gõ đúng chính tả</div><p><b>Gợi ý:</b> ${v[1]} – <i>${v[2]}</i></p>`;
+    const sp=el("button",{class:"btn sec"},"🔊 Nghe");sp.onclick=()=>speak(v[0]);
+    const inp=el("input",{class:"blank",style:"width:260px",autocomplete:"off",autocapitalize:"off",spellcheck:"false"});
+    const ok=el("button",{class:"btn"},"Kiểm tra");const out=el("div",{style:"margin-top:8px"});
+    ok.onclick=()=>{if(ok.dataset.done){i++;show();return;}const r=norm(inp.value)===norm(v[0]);if(r)score++;out.innerHTML=r?`<b style="color:var(--ok)">✔ Đúng!</b>`:`<b style="color:var(--bad)">✘ Đúng là: ${v[0]}</b>`;ok.textContent="Tiếp →";ok.dataset.done=1;};
+    inp.onkeydown=e=>{if(e.key==="Enter")ok.click();};
+    const r=el("div",{class:"row"});r.append(sp,inp,ok);c.append(r,out);speak(v[0]);inp.focus();
+  }
+  show();
+}
+
+/* ---------- Luyện tập ---------- */
+function practice(a,unit){
+  unit=unit||"all";
+  const tabs=el("div",{class:"row",style:"margin-bottom:12px"});
+  [["all","Tất cả"],...Object.keys(UNITS).map(u=>[u,"Unit "+u])].forEach(([k,l])=>{const b=el("button",{class:"btn"+(k===unit?"":" sec")},l);b.onclick=()=>go("practice",k);tabs.appendChild(b);});
+  a.appendChild(tabs);
+  const list=Q.filter(q=>unit==="all"||q.unit===unit);
+  runSet(a,list,"Luyện tập "+(unit==="all"?"tất cả":"Unit "+unit));
+}
+function runSet(a,list,title){
+  a.appendChild(el("h2",{},title));
+  let got=0,tot=0;
+  const sc=el("div",{class:"sticky-score"});a.appendChild(sc);
+  const paint=()=>sc.innerHTML=`<span>Điểm: ${fmt(got)} / ${tot}</span><span>${tot?Math.round(got/tot*100):0}%</span>`;paint();
+  list.forEach((q,i)=>{const r=renderQuestion(q,i+1,(s,qq,adj)=>{got+=s;if(!adj)tot+=qMax(qq);paint();},"practice");a.appendChild(r.node);});
+}
+
+/* ---------- Thi thử ---------- */
+function test(a){
+  a.appendChild(el("h2",{},"📝 Thi thử (giống bài kiểm tra trên lớp)"));
+  const c=el("div",{class:"card"},`<p>Đề được chọn ngẫu nhiên từ cả 3 unit, khoảng <b>35 điểm</b>, thời gian <b>40 phút</b>. Làm hết rồi bấm <b>Nộp bài</b> để chấm.</p>
+  <div class="vi">Mẹo: đọc kỹ số điểm [ ] ở cuối mỗi câu – câu 2 điểm thì phải viết 2 ý.</div>`);
+  const b=el("button",{class:"btn"},"Bắt đầu làm bài");b.onclick=()=>startTest(a);c.appendChild(b);a.appendChild(c);
+}
+function startTest(a){
+  a.innerHTML="";
+  // chọn câu cân bằng giữa các unit đến ~35 điểm
+  const pool={};Object.keys(UNITS).forEach(u=>pool[u]=shuffle(Q.filter(q=>q.unit===u)));
+  const pick=[];let m=0;const us=Object.keys(UNITS);let k=0;
+  while(m<35&&us.some(u=>pool[u].length)){const u=us[k++%us.length];const q=pool[u].shift();if(!q)continue;if(m+qMax(q)>40)continue;pick.push(q);m+=qMax(q);}
+  pick.sort((x,y)=>x.unit.localeCompare(y.unit));
+  a.appendChild(el("h2",{},`Bài thi thử — tổng ${m} điểm`));
+  const bar=el("div",{class:"sticky-score"});a.appendChild(bar);
+  let left=40*60;const tick=()=>{bar.innerHTML=`<span>⏱ ${Math.floor(left/60)}:${String(left%60).padStart(2,"0")}</span><span>${pick.length} câu • ${m} điểm</span>`;};tick();
+  const timer=setInterval(()=>{left--;tick();if(left<=0){clearInterval(timer);submit();}},1000);
+  simStop=()=>clearInterval(timer);
+  const items=pick.map((q,i)=>{const r=renderQuestion(q,i+1,null,"test");a.appendChild(r.node);return r;});
+  const sb=el("button",{class:"btn ok",style:"font-size:18px;padding:14px 24px"},"Nộp bài ✔");a.appendChild(sb);
+  let submitted=false;
+  sb.onclick=()=>{if(sb.dataset.sure){submit();return;}sb.dataset.sure=1;sb.textContent="Bấm lần nữa để chắc chắn nộp bài";setTimeout(()=>{if(!submitted){delete sb.dataset.sure;sb.textContent="Nộp bài ✔";}},4000);};
+  function submit(){
+    if(submitted)return;submitted=true;clearInterval(timer);sb.disabled=true;
+    let s=0;const byU={};
+    items.forEach((r,i)=>{const sc=r.check();s+=sc;const u=pick[i].unit;byU[u]=byU[u]||[0,0];byU[u][0]+=sc;byU[u][1]+=qMax(pick[i]);});
+    S.tests.push({d:new Date().toLocaleDateString("vi-VN"),s,m});save();
+    const pct=Math.round(s/m*100);
+    let h=`<div class="big">${fmt(s)} / ${m} (${pct}%)</div><p>${pct>=90?"🌟 Xuất sắc! Gần như điểm tối đa.":pct>=75?"👍 Khá tốt! Xem lại các câu sai bên dưới.":"💪 Cần ôn thêm – vào mục Bài học và Ôn câu sai."}</p><table class="t"><tr><th>Unit</th><th>Điểm</th></tr>`;
+    Object.keys(byU).forEach(u=>h+=`<tr><td>Unit ${u} – ${UNITS[u].name}</td><td>${fmt(byU[u][0])}/${byU[u][1]}</td></tr>`);
+    const res=el("div",{class:"card"},h+"</table><p class='muted'>Kéo xuống để xem đáp án và lời giải từng câu.</p>");
+    a.insertBefore(res,a.children[1]);window.scrollTo({top:0,behavior:"smooth"});
+  }
+}
+
+/* ---------- Ôn câu sai ---------- */
+function review(a){
+  const list=Q.filter(q=>S.best[q.id]&&S.best[q.id].wrong);
+  if(!list.length){a.appendChild(el("div",{class:"card"},"<h3>🎉 Không có câu sai nào cần ôn!</h3><p>Hãy làm Luyện tập hoặc Thi thử. Câu nào làm chưa đúng sẽ tự động xuất hiện ở đây; làm đúng lại thì câu đó sẽ biến mất.</p>"));return;}
+  runSet(a,list,`🔁 Ôn lại ${list.length} câu đã làm sai`);
+}
+
+/* ---------- Mẹo ---------- */
+function tips(a){
+  a.appendChild(el("h2",{},"⭐ Bí quyết đạt điểm tối đa môn Cambridge Science"));
+  a.appendChild(el("div",{class:"card"},`<h3>1. Đọc “từ lệnh” (command words)</h3><table class="t">
+   <tr><th>Từ lệnh</th><th>Phải làm gì</th><th>Ví dụ</th></tr>
+   <tr><td><b>Name / Write down</b></td><td>Chỉ cần viết tên, 1–2 từ</td><td>“Precipitation.”</td></tr>
+   <tr><td><b>Describe</b></td><td>Kể lại điều gì xảy ra</td><td>“The particles move faster and further apart.”</td></tr>
+   <tr><td><b>Explain</b></td><td>Nói VÌ SAO – dùng <b>because / so</b></td><td>“…because the particles gain heat energy.”</td></tr>
+   <tr><td><b>Compare</b></td><td>Nói cả HAI bên – dùng <b>but / whereas</b></td><td>“Evaporation is slow but boiling is quick.”</td></tr>
+   <tr><td><b>Identify / Circle / Tick</b></td><td>Chọn đúng, chỉ khoanh/tick 1 đáp án</td><td></td></tr>
+   <tr><td><b>Complete</b></td><td>Điền từ trong khung, chép đúng chính tả</td><td></td></tr></table>`));
+  a.appendChild(el("div",{class:"card"},`<h3>2. Đếm điểm = đếm ý</h3><p>Câu <b>[2]</b> cần <b>2 ý khoa học khác nhau</b>. Câu định nghĩa <b>[1]</b> phải đủ cả câu (ví dụ “the <b>temperature</b> at which a <b>solid</b> changes into a <b>liquid</b>”).</p>`));
+  a.appendChild(el("div",{class:"card"},`<h3>3. Câu mẫu “mô hình hạt” – học thuộc</h3>
+   <div class="key"><b>Heating (melting, evaporating, boiling, expanding):</b><br>“The particles <b>gain heat energy</b>. They <b>move faster</b> and <b>move further apart</b>.”</div>
+   <div class="key"><b>Cooling (freezing, condensing, contracting):</b><br>“The particles <b>lose heat energy</b>. They <b>move more slowly</b> and <b>move closer together</b>.”</div>
+   <div class="trap"><b>Không bao giờ viết:</b> “the particles expand / get bigger / melt”. Hạt không thay đổi kích thước!</div>`));
+  a.appendChild(el("div",{class:"card"},`<h3>4. Viết đúng chính tả từ khoá (mất điểm nếu sai)</h3><p>evaporation • condensation • precipitation • transpiration • water <b>vapour</b> (kiểu Anh) • atmosphere • nitrogen • oxygen • carbon dioxide • temperature • °C</p>
+   <p>👉 Luyện ở mục <b>🔤 Từ vựng → Luyện chính tả</b>.</p>`));
+  a.appendChild(el("div",{class:"card"},`<h3>5. Biểu đồ & bảng số liệu</h3><ul class="pts">
+   <li>Vẽ cột: dùng <b>thước</b>, cột <b>bằng chiều rộng</b> các cột mẫu, đỉnh cột đúng vạch.</li>
+   <li>Đọc bảng: “lowest” = nhỏ nhất, “highest” = lớn nhất; luôn ghi đơn vị <b>°C</b>.</li>
+   <li>Trạng thái ở nhiệt độ phòng (~20 °C): so sánh với điểm nóng chảy & điểm sôi.</li></ul>`));
+  a.appendChild(el("div",{class:"card"},`<h3>6. Câu hỏi an toàn (safety)</h3><p>Luôn nêu 1 hành động <b>cụ thể</b>: “Ask an adult to pour the hot water.” / “Do not touch the hot water.” / “Wear heat-proof gloves and goggles.” – không chỉ viết “be careful”.</p>`));
+  a.appendChild(el("div",{class:"card"},`<h3>7. Trước khi nộp bài</h3><ul class="pts"><li>Không bỏ trống câu nào – viết gì đó vẫn có cơ hội có điểm.</li><li>Kiểm tra lại các câu True/False có “bẫy”: <i>all, never, always, largest</i>.</li><li>Đọc lại xem đã trả lời <b>đủ các phần (a), (b), i, ii</b> chưa.</li></ul>`));
+}
+
+applyVI(); go("home");
+</script>
